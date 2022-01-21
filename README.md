@@ -1,0 +1,2 @@
+# gasWriteData-CryptactCustomFormat
+GASでCSVファイルをクリプタクトのカスタムファイルフォーマットに書き出すソースコード
