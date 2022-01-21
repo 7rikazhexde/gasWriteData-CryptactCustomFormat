@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>ファイル読込み</title>
+  <script type="text/javascript">
+    function OnButtonClick() {
+      var fileRef = document.getElementById("File1");
+      var outFrame = document.getElementById("output");
+
+      if (1 <= fileRef.files.length) {
+        var reader = new FileReader();
+        reader.onload = function (theFile) {
+          var outhtml = theFile.target.result;
+          // 文字コードを変換する際はここに変更を入れる
+          // Encoding.jsで文字コードを判定処理と変換処理を入れる
+          // Encode.jsはcdnjs.comで指定可能
+          // スプレッドシートに書き込み
+          google.script.run.readTextGASFileOpen(outhtml);
+          // ダイアログの処理なので重要性は低い
+          outhtml = outhtml.replace(/\r\n/g, "<br/>");
+          outFrame.innerHTML = outhtml;
+        }
+        // 変換結果表示
+        reader.readAsText(fileRef.files[0], "utf-8");
+      }
+     
+    }
+  </script>
+
+</head>
+<body>
+  <input id="File1" type="file" /><input id="Button1" type="button" value="開く" onclick="OnButtonClick();"/>
+  <div id="output"></div>
+</body>
+</html>
