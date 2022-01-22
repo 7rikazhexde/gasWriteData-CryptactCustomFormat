@@ -9,8 +9,11 @@
       var outFrame = document.getElementById("output");
 
       if (1 <= fileRef.files.length) {
+        // FileReaderオブジェクト作成
         var reader = new FileReader();
+        // obloadイベントハンドラ(読み込み操作が正常に完了時に実行)
         reader.onload = function (theFile) {
+          // イベントオブジェクトからファイルのテキストを取得
           var outhtml = theFile.target.result;
           // 文字コードを変換する際はここに変更を入れる
           // Encoding.jsで文字コードを判定処理と変換処理を入れる
