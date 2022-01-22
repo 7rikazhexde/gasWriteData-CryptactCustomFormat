@@ -3,7 +3,7 @@
  */
 function writeData() {
   var html = HtmlService.createHtmlOutputFromFile("WriteData");
-  SpreadsheetApp.getUi().showModalDialog(html, "カスタムシート書き出し");
+  SpreadsheetApp.getUi().showModalDialog(html, "カスタムシート書出し");
 }
 
 /**

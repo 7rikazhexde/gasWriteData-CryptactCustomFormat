@@ -5,15 +5,15 @@ function onOpen() {
   // Uiクラスを取得する
   var ui = SpreadsheetApp.getUi();
   // Uiクラスからメニューを作成する 
-  var menu = ui.createMenu("ファイル読込");
+  var menu = ui.createMenu("ファイル読込み");
   // メニューにアイテムを追加する
   menu.addItem("CSVファイル読込み", "fileOpen");
   // メニューをUiクラスに追加する
   menu.addToUi();
   // Uiクラスからメニューを作成する
-  var writeMenu = ui.createMenu("データ抽出");
+  var writeMenu = ui.createMenu("データ書出し");
   // メニューにアイテムを追加する
-  writeMenu.addItem("カスタムシート書き出し", "writeData");
+  writeMenu.addItem("カスタムシート書出し", "writeData");
   // メニューをUiクラスに追加する
   writeMenu.addToUi();
 }
