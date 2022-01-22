@@ -15,10 +15,9 @@
         reader.onload = function (theFile) {
           // イベントオブジェクトからファイルのテキストを取得
           var outhtml = theFile.target.result;
-          // 文字コードを変換する際はここに変更を入れる
-          // Encoding.jsで文字コードを判定処理と変換処理を入れる
-          // Encode.jsはcdnjs.comで指定可能
-          // スプレッドシートに書き込み
+          // 文字コードを変換する際はencoding.jsを使用すればよい
+          // encoding.jsはcdnjs.comで指定可能
+          // gs側にcsvの配列データを渡しスプレッドシートに書き込む
           google.script.run.readTextGASFileOpen(outhtml);
           // ダイアログの処理なので重要性は低い
           outhtml = outhtml.replace(/\r\n/g, "<br/>");
