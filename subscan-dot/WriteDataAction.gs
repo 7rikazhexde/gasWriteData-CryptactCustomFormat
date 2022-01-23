@@ -74,6 +74,7 @@ function writeDataCryptactFormatFromSubscan(num) {
   lastRow++; //num + 1;だと10乗算されてしまうのでインクリメントすること
 
   // 項目名設定(A-J列)
+  // 書き出しデータはクリプタクトのフォーマット仕様参照
   cdsh.getRange(1,1).setValue("Timestamp");
   cdsh.getRange(1,2).setValue("Action");
   cdsh.getRange(1,3).setValue("Source");
@@ -85,7 +86,7 @@ function writeDataCryptactFormatFromSubscan(num) {
   cdsh.getRange(1,9).setValue("FeeCcy");      
   cdsh.getRange(1,10).setValue("Comment");
 
-  // 項目名設定(固定値)
+  // 固定値データ(ユーザー毎に設定する)
   cdsh.getRange(2,2,lastRow-1).setValue("STAKING");
   cdsh.getRange(2,3,lastRow-1).setValue("KZ8_DW_DOT_4ID1");
   cdsh.getRange(2,4,lastRow-1).setValue("DOT");
