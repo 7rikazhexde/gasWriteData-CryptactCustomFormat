@@ -52,6 +52,9 @@ function readTextGASFileOpen(data){
   var lastRow = thsh.getLastRow();
   // 項目行を除くため行数調整する(lastRow - 1 ;だとNaNになるためデクリメントすること)
   lastRow--;
+  // Volume列では小数点以下のデータを含む場合、数値フォーマットが「指数」に設定されることがあるため、
+  // 書き込み後に数値フォーマットを「自動」に設定する
+  thsh.getRange(5,2,lastRow-1).setNumberFormat("general");
   // Uiクラスを使用して処理終了メッセージダイアログ(タイトルとOKボタン）を表示
   var ui = SpreadsheetApp.getUi();
   // ダイアログタイトル、メッセージと「OK」ボタンを表示(改行するときは「\n」を追加する)
